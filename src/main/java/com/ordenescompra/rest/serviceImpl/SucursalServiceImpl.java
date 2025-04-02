@@ -34,7 +34,7 @@ public class SucursalServiceImpl implements ISucursalService {
 	@Override
 	public Optional<Sucursal> findById(Long id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return sucursalRepository.findById(id);
 	}
 
 	@Override

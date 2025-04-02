@@ -2,7 +2,9 @@ package com.ordenescompra.rest.entities;
 
 import java.math.BigDecimal;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,12 +23,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIdentityInfo (generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Builder
 
 public class Producto {
 	
 	@Id
-	@GeneratedValue (strategy =GenerationType.IDENTITY)
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	
 	private Long id;
 	//private Long ordenId;
@@ -35,9 +38,9 @@ public class Producto {
 	private BigDecimal precio;
 	
 	
+	@JsonBackReference
 	@ManyToOne
-	@JoinColumn(name = "id_orden", nullable = false)
-	@JsonIgnore
+	@JoinColumn(name = "orden_id", nullable = true)
 	private Orden orden;
 	
 	

@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.ordenescompra.rest.entities.Producto;
 import com.ordenescompra.rest.repository.ProductoRepository;
 import com.ordenescompra.rest.service.IProductService;
@@ -17,6 +16,8 @@ public class ProductoServiceImpl implements IProductService {
 	
 	@Autowired
 	private ProductoRepository productoRepository;
+	
+	
 
 	@Override
 	public void save(Producto producto) {
@@ -47,6 +48,18 @@ public class ProductoServiceImpl implements IProductService {
 	public Producto update(Producto producto) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void updatePriceProductOrder(String codigo, Producto product) {
+		// TODO Auto-generated method stub
+		
+		
+		//TODO
+	    //List<Long> ordesActualizar = 	productoRepository.findOrdersByCode(codigo);
+	 
+		
+		
 	}
 
 }

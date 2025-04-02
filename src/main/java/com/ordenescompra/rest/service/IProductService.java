@@ -11,5 +11,6 @@ public interface IProductService {
 	Optional<Producto> findById(Long id);
 	void deleteById(Long id);
 	Producto update(Producto producto);
+	void updatePriceProductOrder(String codigo,Producto  product);
 
 }
