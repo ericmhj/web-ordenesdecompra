@@ -6,12 +6,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,12 +25,13 @@ public class Producto {
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	
 	private Long id;
 	//private Long ordenId;
 	private String codigo;
 	private String descripcion;
 	private BigDecimal precio;
+	@Column(name="url_image")
+	private String urlImage;
 	
 	
 	@JsonBackReference
